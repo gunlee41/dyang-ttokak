@@ -30,6 +30,17 @@ body[data-skin=holo] .num{color:#6b5a8a}
 body[data-skin=holo] .key.down{background:linear-gradient(135deg,#fff0fb,#eefaff 30%,#f6efff 60%,#effff8)}
 @keyframes zx-holo{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 @keyframes zx-flow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+/* 스킨별 키캡 문양/배경 */
+body[data-skin=lavender]{--keyPat:radial-gradient(circle at 50% 50%,rgba(167,139,250,.22) 1px,transparent 1.5px);--keyPatSize:28px 28px}
+body[data-skin=melody]{--keyPat:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='36' height='36'><path d='M18 28C10 22 6 18 6 14a6 6 0 0 1 12-2 6 6 0 0 1 12 2c0 4-4 8-12 14z' fill='%23e86a9a' opacity='.18'/></svg>");--keyPatSize:38px 38px}
+body[data-skin=pochacco]{--keyPat:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><g fill='%2349a6e0' opacity='.16'><circle cx='12' cy='14' r='3'/><circle cx='20' cy='10' r='3'/><circle cx='28' cy='14' r='3'/><ellipse cx='20' cy='25' rx='7' ry='5'/></g></svg>");--keyPatSize:42px 42px}
+body[data-skin=kitty]{--keyPat:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='38' height='38'><g fill='%23e53950' opacity='.14'><path d='M19 19 8 12v14z'/><path d='M19 19 30 12v14z'/><circle cx='19' cy='19' r='3'/></g></svg>");--keyPatSize:40px 40px}
+body[data-skin=sakura]{--keyPat:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='42' height='42'><g fill='%23ef7fa8' opacity='.2'><ellipse cx='21' cy='12' rx='3.5' ry='6'/><ellipse cx='30' cy='21' rx='6' ry='3.5'/><ellipse cx='21' cy='30' rx='3.5' ry='6'/><ellipse cx='12' cy='21' rx='6' ry='3.5'/><circle cx='21' cy='21' r='2.4'/></g></svg>");--keyPatSize:46px 46px}
+body[data-skin=christmas]{--keyPat:radial-gradient(circle at 20% 30%,rgba(255,255,255,.5) 1.2px,transparent 1.7px),radial-gradient(circle at 72% 62%,rgba(255,255,255,.4) 1px,transparent 1.5px),repeating-linear-gradient(45deg,rgba(255,255,255,.045) 0 5px,transparent 5px 11px);--keyPatSize:38px 38px,52px 52px,auto}
+body[data-skin=heart]{--keyPat:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='36' height='36'><path d='M18 28C10 22 6 18 6 14a6 6 0 0 1 12-2 6 6 0 0 1 12 2c0 4-4 8-12 14z' fill='%23ff4d88' opacity='.2'/></svg>");--keyPatSize:38px 38px}
+body[data-skin=mint]{--keyPat:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><g fill='%235fd6a9' opacity='.16'><path d='M10 26c0-8 6-14 14-14 0 8-6 14-14 14z'/><path d='M26 36c-1-6 3-11 9-12 1 6-3 11-9 12z'/></g></svg>");--keyPatSize:44px 44px}
+body[data-skin=liquid]{--keyPat:radial-gradient(circle at 30% 70%,rgba(255,255,255,.35) 1.5px,transparent 2.2px),radial-gradient(circle at 75% 25%,rgba(180,255,250,.3) 1px,transparent 1.7px);--keyPatSize:34px 34px,48px 48px}
+body[data-skin=retro]{--keyPat:repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 4px);--keyPatSize:auto}
 *{box-sizing:border-box}
 html,body{margin:0}
 body{min-height:100dvh;background:radial-gradient(1200px 800px at 50% -10%,var(--glow) 0%,var(--bg) 55%);color:var(--text);font:16px/1.4 system-ui,-apple-system,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;display:flex;flex-direction:column;align-items:center;padding:max(14px,env(safe-area-inset-top)) 14px max(18px,env(safe-area-inset-bottom));-webkit-tap-highlight-color:transparent}
@@ -41,14 +52,14 @@ main{width:100%;display:flex;flex-direction:column;align-items:center;gap:14px}
 #fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 header,main{position:relative;z-index:1}
 .pad{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(5,1fr);grid-template-areas:"nl div mul sub" "n7 n8 n9 add" "n4 n5 n6 add" "n1 n2 n3 ent" "n0 n0 dot ent";gap:clamp(7px,1.8vw,12px);width:min(92vw,430px);aspect-ratio:4/5;margin-top:2px;touch-action:none;-webkit-touch-callout:none}
-.key{appearance:none;border:1px solid var(--line);border-radius:clamp(12px,3vw,18px);background:linear-gradient(180deg,var(--keyTop),var(--key2));color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none;touch-action:none;box-shadow:0 5px 0 var(--keyShadow),0 10px 22px var(--keyDrop),inset 0 1px 0 rgba(255,255,255,.06);transition:transform .045s ease,box-shadow .045s ease,background .12s ease;position:relative;overflow:hidden}
-.key:active,.key.down{transform:translateY(4px);box-shadow:0 1px 0 var(--keyShadow),0 3px 8px var(--keyDrop2),inset 0 1px 0 rgba(255,255,255,.04);background:linear-gradient(180deg,var(--keyPress),var(--keyPress2))}
+.key{appearance:none;border:1px solid var(--line);border-radius:clamp(12px,3vw,18px);background-image:var(--keyPat,none),linear-gradient(180deg,var(--keyTop),var(--key2));background-size:var(--keyPatSize,auto),100% 100%;background-repeat:repeat;color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none;touch-action:none;box-shadow:0 5px 0 var(--keyShadow),0 10px 22px var(--keyDrop),inset 0 1px 0 rgba(255,255,255,.06);transition:transform .045s ease,box-shadow .045s ease,background .12s ease;position:relative;overflow:hidden}
+.key:active,.key.down{transform:translateY(4px);box-shadow:0 1px 0 var(--keyShadow),0 3px 8px var(--keyDrop2),inset 0 1px 0 rgba(255,255,255,.04);background-image:var(--keyPat,none),linear-gradient(180deg,var(--keyPress),var(--keyPress2))}
 .key.down{box-shadow:0 1px 0 var(--keyShadow),0 3px 10px var(--keyDrop2),0 0 0 1px var(--accentSoft2),0 0 22px var(--accentGlow)}
 .lbl{font-weight:800;font-size:clamp(18px,5vw,27px);line-height:1;letter-spacing:-.02em;pointer-events:none}
 .key.wide .lbl{font-size:clamp(15px,4.4vw,24px)}
 .key.tall .lbl{font-size:clamp(13px,3.6vw,19px);letter-spacing:-.03em}
 /* 질감: 거품 / 말랑 / 쫀득 */
-body[data-tex=bubble] .key{border-radius:clamp(16px,4vw,24px);border-color:rgba(255,255,255,.5);background:radial-gradient(circle at 32% 22%,rgba(255,255,255,.95) 0%,rgba(255,255,255,.35) 26%,rgba(255,255,255,.06) 48%),linear-gradient(135deg,rgba(255,255,255,.5),rgba(170,240,255,.16) 45%,rgba(255,200,250,.24));box-shadow:inset 0 2px 14px rgba(255,255,255,.55),inset 0 -12px 20px rgba(130,180,255,.15),0 10px 24px var(--keyDrop);overflow:visible;backdrop-filter:blur(6px)}
+body[data-tex=bubble] .key{border-radius:clamp(16px,4vw,24px);border-color:rgba(255,255,255,.5);background-image:var(--keyPat,none),radial-gradient(circle at 32% 22%,rgba(255,255,255,.95) 0%,rgba(255,255,255,.35) 26%,rgba(255,255,255,.06) 48%),linear-gradient(135deg,rgba(255,255,255,.5),rgba(170,240,255,.16) 45%,rgba(255,200,250,.24));background-size:var(--keyPatSize,auto),100% 100%,100% 100%;background-repeat:repeat;box-shadow:inset 0 2px 14px rgba(255,255,255,.55),inset 0 -12px 20px rgba(130,180,255,.15),0 10px 24px var(--keyDrop);overflow:visible;backdrop-filter:blur(6px)}
 body[data-tex=bubble] .key .lbl{text-shadow:0 1px 0 rgba(255,255,255,.5)}
 body[data-tex=bubble] .key:active,body[data-tex=bubble] .key.down{transform:translateY(3px) scale(.94,.9);box-shadow:inset 0 2px 10px rgba(255,255,255,.4),inset 0 -8px 16px rgba(130,180,255,.12),0 3px 10px var(--keyDrop2),0 0 26px var(--accentGlow)}
 body[data-tex=jelly] .key{border-radius:clamp(20px,4.8vw,30px);box-shadow:inset 0 2px 7px rgba(255,255,255,.5),inset 0 -9px 16px rgba(0,0,0,.07),0 9px 0 var(--keyShadow),0 16px 28px var(--keyDrop);transition:transform .12s cubic-bezier(.2,1.6,.4,1),box-shadow .12s ease,background .12s ease}
@@ -65,9 +76,16 @@ body[data-tex=goo] .key.down:after{height:32px;opacity:.34;transform:scaleX(1.25
 body[data-tex=goo] .key .lbl{transition:transform .38s cubic-bezier(.2,1.2,.3,1)}
 body[data-tex=goo] .key.down .lbl{transform:scaleY(.68)}
 body[data-tex=goo] .key.gooOut{animation:zx-gooOut .8s cubic-bezier(.2,1.4,.3,1)}
-.ring{position:absolute;inset:0;border-radius:inherit;border:2px solid var(--accent);opacity:.85;pointer-events:none;animation:zx-ring 1.2s cubic-bezier(.16,.7,.3,1) forwards}
-.spark{position:absolute;left:50%;top:50%;width:9px;height:9px;margin:-4px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,rgba(255,255,255,.4) 55%,transparent 72%);box-shadow:0 0 7px rgba(255,255,255,.8);pointer-events:none;animation:zx-spark 1.4s cubic-bezier(.2,.7,.3,1) forwards}
-@keyframes zx-ring{to{transform:scale(1.35);opacity:0}}
+/* 질감: 네온 / 글리치 */
+body[data-tex=neon] .key{border-color:var(--accentSoft2);box-shadow:0 0 9px var(--accentSoft),inset 0 0 14px var(--accentSoft),0 8px 20px var(--keyDrop)}
+body[data-tex=neon] .lbl{text-shadow:0 0 10px var(--accentGlow)}
+body[data-tex=neon] .key.down{transform:translateY(3px) scale(.96);box-shadow:0 0 22px var(--accentGlow),0 0 60px var(--accentSoft),inset 0 0 20px var(--accentSoft2),0 2px 6px var(--keyDrop2)}
+body[data-tex=glitch] .key.down{box-shadow:0 0 0 1px var(--accentSoft2),4px 0 0 rgba(255,0,80,.35),-4px 0 0 rgba(0,220,255,.35),0 8px 18px var(--keyDrop2)}
+body[data-tex=glitch] .key.glitch{animation:zx-glitch .26s steps(2,end)}
+@keyframes zx-glitch{0%{transform:translate(0)}25%{transform:translate(-2px,1px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-1px,-1px)}100%{transform:none}}
+.ring{position:absolute;inset:-4px;border-radius:inherit;border:3px solid var(--accent);opacity:.95;box-shadow:0 0 18px var(--accentGlow),inset 0 0 14px var(--accentSoft2);pointer-events:none;animation:zx-ring 1.6s cubic-bezier(.16,.7,.3,1) forwards}
+.spark{position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-6px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,rgba(255,255,255,.45) 55%,transparent 72%);box-shadow:0 0 10px rgba(255,255,255,.9);pointer-events:none;animation:zx-spark 1.7s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes zx-ring{to{transform:scale(1.55);opacity:0}}
 @keyframes zx-spark{to{transform:translate(var(--dx),var(--dy)) scale(.15);opacity:0}}
 @keyframes zx-jiggle{0%{transform:translateY(3px) scale(1.08,.74)}26%{transform:translateY(-3px) scale(.93,1.09)}50%{transform:translateY(2px) scale(1.04,.95)}72%{transform:translateY(-1px) scale(.98,1.03)}100%{transform:none}}
 @keyframes zx-gooOut{0%{transform:translateY(16px) scale(1.12,.55)}40%{transform:translateY(-4px) scale(.93,1.14)}65%{transform:translateY(3px) scale(1.05,.94)}84%{transform:translateY(-1px) scale(.98,1.02)}100%{transform:none}}
@@ -164,6 +182,8 @@ input[type=range]:disabled{opacity:.35}
         <option value="bubble">거품</option>
         <option value="jelly">말랑</option>
         <option value="goo">쫀득</option>
+        <option value="neon">네온</option>
+        <option value="glitch">글리치</option>
       </select>
     </label>
     <div class="row"><span>진동</span>
@@ -175,7 +195,7 @@ input[type=range]:disabled{opacity:.35}
     <label class="row" id="intRow"><span>강도 <b id="intVal">45</b></span>
       <input id="intensity" type="range" min="1" max="100" value="45">
     </label>
-    <div class="hint" id="hint">숫자패드로도, 여러 손가락으로 동시에 눌러도 돼요</div>
+    <div class="hint" id="hint">스와이프해도 입력돼요 · 여러 손가락 동시 입력 OK</div>
     <div class="credit" id="credit" hidden></div>
   </section>
 </main>
@@ -185,9 +205,9 @@ const fx=$('#fx'),fxc=fx.getContext('2d');
 const packSel=$('#pack'),skinSel=$('#skin'),texSel=$('#tex'),hapticEl=$('#haptic'),intEl=$('#intensity'),intVal=$('#intVal'),statusEl=$('#status'),hintEl=$('#hint'),creditEl=$('#credit'),vibTest=$('#vibTest'),themeMeta=$('#themeColor');
 const canVibrate='vibrate' in navigator;
 const THEME={lavender:'#0d0e15',melody:'#fff6f9',pochacco:'#f2faff',kitty:'#fff7f7',mint:'#0c1512',sakura:'#fff9fb',retro:'#16130f',christmas:'#07130d',heart:'#1a0710',holo:'#0a0a14',liquid:'#04141a'};
-const SKIN_FX={christmas:'snow',sakura:'petal',heart:'heart',holo:'sparkle',liquid:'bubble'};
-const FX_N={snow:34,petal:24,heart:20,sparkle:28,bubble:18};
-const FX_C={snow:['#fff','#eaf6ff'],petal:['#ffb7d0','#ff9ec4','#ffc9dd'],heart:['#ff4d88','#ff6b9d','#ff2e6f'],sparkle:['#fff','#d9f0ff','#ffe9f9','#e6d9ff','#d9fff0'],bubble:['#9fe8ff','#7fd8f0','#c8f6ff']};
+const SKIN_FX={christmas:'snow',sakura:'petal',heart:'heart',holo:'sparkle',liquid:'bubble',mint:'firefly',retro:'rain',lavender:'dust'};
+const FX_N={snow:34,petal:24,heart:20,sparkle:28,bubble:18,firefly:18,rain:44,dust:14};
+const FX_C={snow:['#fff','#eaf6ff'],petal:['#ffb7d0','#ff9ec4','#ffc9dd'],heart:['#ff4d88','#ff6b9d','#ff2e6f'],sparkle:['#fff','#d9f0ff','#ffe9f9','#e6d9ff','#d9fff0'],bubble:['#9fe8ff','#7fd8f0','#c8f6ff'],firefly:['#b7ffcf','#7fffb0','#eafef2'],rain:['#cfe9f5','#a9c8d8','#e6f6ff'],dust:['#d9cfff','#fff','#b9a7ff']};
 let ctx,buf,def,loadSeq=0,fileList=null,fileMap=null;
 let fxType=null,parts=[],fxRaf=0,fxLast=0;
 
@@ -203,6 +223,9 @@ function mkPart(type,spread){
   else if(type==='petal'){p.s=4+Math.random()*4;p.vy=.6+Math.random()*1.1;p.vx=.3+Math.random()*.6}
   else if(type==='heart'){p.s=4+Math.random()*5;p.vy=.7+Math.random()*1.3;p.vx=(Math.random()-.5)*.7}
   else if(type==='sparkle'){p.s=1+Math.random()*2.6;p.vy=.1+Math.random()*.35;p.vx=(Math.random()-.5)*.4}
+  else if(type==='firefly'){p.s=1.2+Math.random()*2.4;p.vy=-(.15+Math.random()*.4);p.vx=(Math.random()-.5)*.3;p.y=spread?Math.random()*h:h+20;p.a=.3+Math.random()*.5}
+  else if(type==='rain'){p.s=6+Math.random()*10;p.vy=4+Math.random()*4;p.vx=.15;p.a=.25+Math.random()*.3}
+  else if(type==='dust'){p.s=.8+Math.random()*1.4;p.vy=.06+Math.random()*.18;p.vx=(Math.random()-.5)*.2;p.a=.15+Math.random()*.35}
   else{p.s=3+Math.random()*7;p.vy=-(.5+Math.random()*1.2);p.vx=(Math.random()-.5)*.4;p.y=spread?Math.random()*h:h+20}
   return p;
 }
@@ -213,6 +236,9 @@ function drawPart(p){
   else if(fxType==='petal'){fxc.translate(p.x,p.y);fxc.rotate(p.rot);fxc.beginPath();fxc.ellipse(0,0,p.s,p.s*.55,0,0,6.283);fxc.fill()}
   else if(fxType==='heart')drawHeart(p.x,p.y,p.s,p.rot);
   else if(fxType==='sparkle'){fxc.translate(p.x,p.y);fxc.rotate(p.rot);fxc.beginPath();fxc.moveTo(0,-p.s*2.2);fxc.lineTo(p.s*.55,0);fxc.lineTo(0,p.s*2.2);fxc.lineTo(-p.s*.55,0);fxc.closePath();fxc.fill()}
+  else if(fxType==='firefly'){fxc.globalAlpha=p.a*(.6+.4*Math.sin(performance.now()*.003+p.ph));fxc.shadowColor=p.c;fxc.shadowBlur=8;fxc.beginPath();fxc.arc(p.x,p.y,p.s,0,6.283);fxc.fill();fxc.shadowBlur=0}
+  else if(fxType==='rain'){fxc.lineWidth=1.2;fxc.globalAlpha=p.a;fxc.beginPath();fxc.moveTo(p.x,p.y);fxc.lineTo(p.x,p.y+p.s);fxc.stroke()}
+  else if(fxType==='dust'){fxc.beginPath();fxc.arc(p.x,p.y,p.s,0,6.283);fxc.fill()}
   else{fxc.lineWidth=1;fxc.globalAlpha=p.a*.75;fxc.beginPath();fxc.arc(p.x,p.y,p.s,0,6.283);fxc.stroke();fxc.globalAlpha=p.a*.12;fxc.fill()}
   fxc.restore();
 }
@@ -236,7 +262,12 @@ function startFx(type){
   for(let i=0;i<n;i++)parts.push(mkPart(type,true));
   fxLast=performance.now();fxRaf=requestAnimationFrame(fxLoop);
 }
-function burst(el){const ring=document.createElement('span');ring.className='ring';el.appendChild(ring);for(let i=0;i<5;i++){const sp=document.createElement('span');sp.className='spark';const a=Math.PI*2*i/5+Math.random()*.5,d=20+Math.random()*22;sp.style.setProperty('--dx',(Math.cos(a)*d).toFixed(1)+'px');sp.style.setProperty('--dy',(Math.sin(a)*d).toFixed(1)+'px');el.appendChild(sp)}setTimeout(()=>el.querySelectorAll('.ring,.spark').forEach(n=>n.remove()),1700)}
+function burst(el){
+  const nodes=[];
+  const ring=document.createElement('span');ring.className='ring';el.appendChild(ring);nodes.push(ring);
+  for(let i=0;i<8;i++){const sp=document.createElement('span');sp.className='spark';const a=Math.PI*2*i/8+Math.random()*.4,d=24+Math.random()*32;sp.style.setProperty('--dx',(Math.cos(a)*d).toFixed(1)+'px');sp.style.setProperty('--dy',(Math.sin(a)*d).toFixed(1)+'px');el.appendChild(sp);nodes.push(sp)}
+  setTimeout(()=>nodes.forEach(n=>n.remove()),2000)
+}
 function playFile(){
   if(!ctx||!fileList||!fileMap||!fileList.length)return;
   const b=fileMap.get(fileList[Math.floor(Math.random()*fileList.length)]);
@@ -291,21 +322,36 @@ async function loadPack(id){
     creditEl.textContent=p.credit||'';creditEl.hidden=!p.credit;statusEl.textContent='';
   }catch(e){if(seq===loadSeq)statusEl.textContent='사운드를 불러오지 못했어요'}
 }
-function press(el){ensureCtx();el.classList.add('down');play(el.dataset.k,false);buzz();if(document.body.dataset.tex==='bubble')burst(el)}
+function press(el){
+  ensureCtx();el.classList.add('down');play(el.dataset.k,false);buzz();
+  const t=document.body.dataset.tex;
+  if(t==='bubble')burst(el);
+  else if(t==='glitch'){el.classList.remove('glitch');void el.offsetWidth;el.classList.add('glitch');setTimeout(()=>el.classList.remove('glitch'),300)}
+}
 function release(el){
   el.classList.remove('down');play(el.dataset.k,true);
   const t=document.body.dataset.tex;
   if(t==='jelly'){el.classList.remove('jiggle');void el.offsetWidth;el.classList.add('jiggle');setTimeout(()=>el.classList.remove('jiggle'),580)}
   else if(t==='goo'){el.classList.remove('gooOut');void el.offsetWidth;el.classList.add('gooOut');setTimeout(()=>el.classList.remove('gooOut'),820)}
 }
+const ptr=new Map();
+const keyAt=(x,y)=>{const n=document.elementFromPoint(x,y);return n&&n.closest?n.closest('.key'):null};
+function movePtr(id,el){
+  const cur=ptr.get(id);
+  if(cur===el)return;
+  if(cur)release(cur);
+  if(el){press(el);ptr.set(id,el)}else ptr.delete(id);
+}
 $$('.key').forEach(el=>{
-  el.addEventListener('pointerdown',e=>{e.preventDefault();try{el.setPointerCapture(e.pointerId)}catch(_){}press(el)});
-  el.addEventListener('pointerup',()=>release(el));
-  el.addEventListener('pointercancel',()=>release(el));
+  el.addEventListener('pointerdown',e=>{e.preventDefault();try{el.setPointerCapture(e.pointerId)}catch(_){}movePtr(e.pointerId,el)});
 });
+addEventListener('pointermove',e=>{if(!ptr.has(e.pointerId))return;movePtr(e.pointerId,keyAt(e.clientX,e.clientY))},{passive:true});
+const endPtr=e=>{const el=ptr.get(e.pointerId);if(el)release(el);ptr.delete(e.pointerId)};
+addEventListener('pointerup',endPtr);
+addEventListener('pointercancel',endPtr);
 $('#pad').addEventListener('contextmenu',e=>e.preventDefault());
 addEventListener('resize',()=>{if(fxType)fxSize()});
-addEventListener('blur',()=>$$('.key.down').forEach(el=>release(el)));
+addEventListener('blur',()=>{const s=new Set([...ptr.values(),...$$('.key.down')]);ptr.clear();s.forEach(el=>release(el))});
 const PHYS={NumLock:'NumLock',NumpadDivide:'NumpadDivide',NumpadMultiply:'NumpadMultiply',NumpadSubtract:'NumpadSubtract',NumpadAdd:'NumpadAdd',NumpadEnter:'NumpadEnter',Enter:'NumpadEnter',NumpadDecimal:'NumpadDecimal'};
 for(let i=0;i<10;i++)PHYS['Numpad'+i]='Numpad'+i;
 const keyEl=k=>document.querySelector('[data-k="'+k+'"]');
