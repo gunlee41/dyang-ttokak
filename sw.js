@@ -1,4 +1,4 @@
-const CACHE = 'dyang-v2';
+const CACHE = 'dyang-v3';
 const CORE = ['./','./index.html','./manifest.json','./icons/icon-180.png','./icons/icon-192.png','./icons/icon-512.png','./packs/brown/config.json','./packs/brown/sound.ogg'];
 self.addEventListener('install', e => {
   e.waitUntil((async () => {
