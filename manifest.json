@@ -1,0 +1,25 @@
+{
+  "name": "다영이 또각이",
+  "short_name": "또각이",
+  "description": "다영이를 위한 힐링 텐키 — 소리와 진동",
+  "lang": "ko",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d0e15",
+  "theme_color": "#0d0e15",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

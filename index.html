@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>다영이 또각이</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" id="themeColor" content="#0d0e15">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="다영이 또각이">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<style>
+:root{--bg:#0d0e15;--glow:#1a1c2e;--panel:#161824;--keyTop:#2a2d3c;--key2:#1a1c28;--keyPress:#343850;--keyPress2:#20222f;--keyShadow:#0b0c12;--keyDrop:rgba(0,0,0,.45);--keyDrop2:rgba(0,0,0,.5);--panelLine:#262a3a;--line:#333747;--inputBg:#10121b;--text:#e9e9f2;--sub:#c7cadb;--muted:#8b8fa3;--accent:#a78bfa;--accentGlow:rgba(167,139,250,.55);--accentSoft:rgba(167,139,250,.25);--accentSoft2:rgba(167,139,250,.6);--switchBg:#2a2d3c;--switchLine:#3a3f52;--track:#2c3040;--thumb:#8b8fa3;--panelShadow:rgba(0,0,0,.25);--deco:"";--theme:#0d0e15}
+body[data-skin=melody]{--bg:#fff6f9;--glow:#ffe3ee;--panel:#fff;--keyTop:#fff;--key2:#ffe9f2;--keyPress:#ffe1ec;--keyPress2:#ffd4e4;--keyShadow:#e7b3c7;--keyDrop:rgba(120,50,80,.16);--keyDrop2:rgba(120,50,80,.22);--panelLine:#f6d8e3;--line:#f0c6d6;--inputBg:#fff8fb;--text:#4b2434;--sub:#8c5b6d;--muted:#b78a9b;--accent:#e86a9a;--accentGlow:rgba(232,106,154,.35);--accentSoft:rgba(232,106,154,.15);--accentSoft2:rgba(232,106,154,.45);--switchBg:#ffe3ec;--switchLine:#efc2d2;--track:#f2d2de;--thumb:#d98aa7;--panelShadow:rgba(120,50,80,.14);--deco:"🎀";--theme:#fff6f9}
+body[data-skin=pochacco]{--bg:#f2faff;--glow:#dff3ff;--panel:#fff;--keyTop:#fff;--key2:#e8f6ff;--keyPress:#dff2ff;--keyPress2:#cfeaff;--keyShadow:#b9dced;--keyDrop:rgba(30,70,100,.14);--keyDrop2:rgba(30,70,100,.2);--panelLine:#dff0f8;--line:#cfe8f5;--inputBg:#f7fcff;--text:#1f3b4d;--sub:#5a7d90;--muted:#8fb0c0;--accent:#49a6e0;--accentGlow:rgba(73,166,224,.32);--accentSoft:rgba(73,166,224,.14);--accentSoft2:rgba(73,166,224,.45);--switchBg:#e3f4ff;--switchLine:#c6e8f7;--track:#d6ecf7;--thumb:#7fb9d9;--panelShadow:rgba(30,70,100,.12);--deco:"🐾";--theme:#f2faff}
+body[data-skin=kitty]{--bg:#fff7f7;--glow:#ffe3e6;--panel:#fff;--keyTop:#fff;--key2:#fff0f0;--keyPress:#ffe7e7;--keyPress2:#ffdada;--keyShadow:#e9bfbf;--keyDrop:rgba(100,30,30,.14);--keyDrop2:rgba(100,30,30,.2);--panelLine:#f7dede;--line:#f0cccc;--inputBg:#fffafa;--text:#2e2525;--sub:#7d5a5a;--muted:#b18f8f;--accent:#e53950;--accentGlow:rgba(229,57,80,.3);--accentSoft:rgba(229,57,80,.14);--accentSoft2:rgba(229,57,80,.45);--switchBg:#ffe6e9;--switchLine:#f2c5ca;--track:#f4d4d7;--thumb:#d98f98;--panelShadow:rgba(100,30,30,.12);--deco:"🎀";--theme:#fff7f7}
+body[data-skin=mint]{--bg:#0c1512;--glow:#123027;--panel:#14241f;--keyTop:#203a31;--key2:#172b24;--keyPress:#28493d;--keyPress2:#1b3329;--keyShadow:#07110e;--keyDrop:rgba(0,0,0,.45);--keyDrop2:rgba(0,0,0,.5);--panelLine:#244036;--line:#2d4a3f;--inputBg:#0f1f1a;--text:#e6f5ef;--sub:#b9d8cc;--muted:#7fa294;--accent:#5fd6a9;--accentGlow:rgba(95,214,169,.4);--accentSoft:rgba(95,214,169,.16);--accentSoft2:rgba(95,214,169,.5);--switchBg:#1d3a30;--switchLine:#2f5a4a;--track:#23453a;--thumb:#6fae98;--panelShadow:rgba(0,0,0,.25);--deco:"🌿";--theme:#0c1512}
+body[data-skin=sakura]{--bg:#fff9fb;--glow:#ffe6f0;--panel:#fff;--keyTop:#fff;--key2:#fff0f6;--keyPress:#ffe6f1;--keyPress2:#ffd8e9;--keyShadow:#ecc4d7;--keyDrop:rgba(110,40,70,.14);--keyDrop2:rgba(110,40,70,.2);--panelLine:#f8dfe9;--line:#f2cfdd;--inputBg:#fffafc;--text:#3d2a33;--sub:#82616f;--muted:#b394a0;--accent:#ef7fa8;--accentGlow:rgba(239,127,168,.32);--accentSoft:rgba(239,127,168,.14);--accentSoft2:rgba(239,127,168,.45);--switchBg:#ffe8f2;--switchLine:#f3c9da;--track:#f6d9e4;--thumb:#df9cb5;--panelShadow:rgba(110,40,70,.12);--deco:"🌸";--theme:#fff9fb}
+body[data-skin=retro]{--bg:#16130f;--glow:#2a2118;--panel:#221d17;--keyTop:#3a3128;--key2:#2a231c;--keyPress:#4a3f33;--keyPress2:#332a21;--keyShadow:#0d0a07;--keyDrop:rgba(0,0,0,.45);--keyDrop2:rgba(0,0,0,.5);--panelLine:#3a3027;--line:#4a3e33;--inputBg:#1c1712;--text:#f3e9da;--sub:#d3c3ad;--muted:#9a8a75;--accent:#e0a458;--accentGlow:rgba(224,164,88,.4);--accentSoft:rgba(224,164,88,.16);--accentSoft2:rgba(224,164,88,.5);--switchBg:#3a2f24;--switchLine:#5a4a39;--track:#3a2f24;--thumb:#b08b5f;--panelShadow:rgba(0,0,0,.25);--deco:"✧";--theme:#16130f}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{min-height:100dvh;background:radial-gradient(1200px 800px at 50% -10%,var(--glow) 0%,var(--bg) 55%);color:var(--text);font:16px/1.4 system-ui,-apple-system,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;display:flex;flex-direction:column;align-items:center;padding:max(14px,env(safe-area-inset-top)) 14px max(18px,env(safe-area-inset-bottom));-webkit-tap-highlight-color:transparent}
+header{text-align:center;margin:4px 0 12px}
+.brand{font-weight:800;font-size:clamp(17px,4.4vw,21px);color:var(--accent);letter-spacing:.02em}
+.brand:before{content:var(--deco);font-size:.9em;margin-right:.35em;filter:saturate(.85)}
+.sub{color:var(--muted);font-size:12px;margin-top:4px}
+main{width:100%;display:flex;flex-direction:column;align-items:center;gap:14px}
+.pad{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(5,1fr);grid-template-areas:"nl div mul sub" "n7 n8 n9 add" "n4 n5 n6 add" "n1 n2 n3 ent" "n0 n0 dot ent";gap:clamp(7px,1.8vw,12px);width:min(92vw,430px);aspect-ratio:4/5;margin-top:2px;touch-action:manipulation;-webkit-touch-callout:none}
+.key{appearance:none;border:1px solid var(--line);border-radius:clamp(12px,3vw,18px);background:linear-gradient(180deg,var(--keyTop),var(--key2));color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none;touch-action:manipulation;box-shadow:0 5px 0 var(--keyShadow),0 10px 22px var(--keyDrop),inset 0 1px 0 rgba(255,255,255,.06);transition:transform .045s ease,box-shadow .045s ease,background .12s ease;position:relative;overflow:hidden}
+.key:active,.key.down{transform:translateY(4px);box-shadow:0 1px 0 var(--keyShadow),0 3px 8px var(--keyDrop2),inset 0 1px 0 rgba(255,255,255,.04);background:linear-gradient(180deg,var(--keyPress),var(--keyPress2))}
+.key.down{box-shadow:0 1px 0 var(--keyShadow),0 3px 10px var(--keyDrop2),0 0 0 1px var(--accentSoft2),0 0 22px var(--accentGlow)}
+.lbl{font-weight:800;font-size:clamp(18px,5vw,27px);line-height:1;letter-spacing:-.02em;pointer-events:none}
+.key.wide .lbl{font-size:clamp(15px,4.4vw,24px)}
+.key.tall .lbl{font-size:clamp(13px,3.6vw,19px);letter-spacing:-.03em}
+/* 질감: 거품 / 말랑 / 쫀득 */
+body[data-tex=bubble] .key{border-radius:clamp(16px,4vw,24px);border-color:rgba(255,255,255,.5);background:radial-gradient(circle at 32% 22%,rgba(255,255,255,.95) 0%,rgba(255,255,255,.35) 26%,rgba(255,255,255,.06) 48%),linear-gradient(135deg,rgba(255,255,255,.5),rgba(170,240,255,.16) 45%,rgba(255,200,250,.24));box-shadow:inset 0 2px 14px rgba(255,255,255,.55),inset 0 -12px 20px rgba(130,180,255,.15),0 10px 24px var(--keyDrop);overflow:visible;backdrop-filter:blur(6px)}
+body[data-tex=bubble] .key .lbl{text-shadow:0 1px 0 rgba(255,255,255,.5)}
+body[data-tex=bubble] .key:active,body[data-tex=bubble] .key.down{transform:translateY(3px) scale(.94,.9);box-shadow:inset 0 2px 10px rgba(255,255,255,.4),inset 0 -8px 16px rgba(130,180,255,.12),0 3px 10px var(--keyDrop2),0 0 26px var(--accentGlow)}
+body[data-tex=jelly] .key{border-radius:clamp(20px,4.8vw,30px);box-shadow:inset 0 2px 7px rgba(255,255,255,.5),inset 0 -9px 16px rgba(0,0,0,.07),0 9px 0 var(--keyShadow),0 16px 28px var(--keyDrop);transition:transform .16s cubic-bezier(.2,1.6,.4,1),box-shadow .16s ease,background .12s ease}
+body[data-tex=jelly] .key:active,body[data-tex=jelly] .key.down{transform:translateY(6px) scale(1.03,.8);box-shadow:inset 0 2px 6px rgba(255,255,255,.45),inset 0 -6px 12px rgba(0,0,0,.1),0 2px 0 var(--keyShadow),0 4px 10px var(--keyDrop2)}
+body[data-tex=jelly] .key.jiggle{animation:zx-jiggle .5s cubic-bezier(.2,1.6,.35,1)}
+body[data-tex=goo] .key{border-radius:clamp(22px,5.2vw,34px);border-color:transparent;box-shadow:inset 0 3px 9px rgba(255,255,255,.5),inset 0 -10px 18px rgba(0,0,0,.1),0 14px 24px var(--keyDrop);transition:transform .22s cubic-bezier(.2,1.5,.3,1),box-shadow .22s ease,background .12s ease;overflow:visible}
+body[data-tex=goo] .key:after{content:"";position:absolute;left:16%;right:16%;bottom:-8px;height:16px;border-radius:50%;background:var(--accent);opacity:.22;filter:blur(9px);pointer-events:none}
+body[data-tex=goo] .key:active,body[data-tex=goo] .key.down{transform:translateY(9px) scale(1.06,.7);box-shadow:inset 0 3px 8px rgba(255,255,255,.4),inset 0 -6px 12px rgba(0,0,0,.14),0 3px 0 var(--keyShadow),0 6px 10px var(--keyDrop2)}
+body[data-tex=goo] .key .lbl{transition:transform .22s cubic-bezier(.2,1.5,.3,1)}
+body[data-tex=goo] .key.down .lbl{transform:scaleY(.85)}
+.ring{position:absolute;inset:0;border-radius:inherit;border:2px solid var(--accent);opacity:.85;pointer-events:none;animation:zx-ring .5s ease-out forwards}
+.spark{position:absolute;left:50%;top:50%;width:9px;height:9px;margin:-4px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,rgba(255,255,255,.4) 55%,transparent 72%);box-shadow:0 0 7px rgba(255,255,255,.8);pointer-events:none;animation:zx-spark .55s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes zx-ring{to{transform:scale(1.22);opacity:0}}
+@keyframes zx-spark{to{transform:translate(var(--dx),var(--dy)) scale(.15);opacity:0}}
+@keyframes zx-jiggle{0%{transform:translateY(2px) scale(1.06,.78)}30%{transform:translateY(-2px) scale(.95,1.07)}55%{transform:translateY(1px) scale(1.03,.97)}78%{transform:scale(.99,1.01)}100%{transform:none}}
+.num{position:absolute;right:7px;bottom:5px;font:600 9px/1 system-ui,sans-serif;color:var(--muted);opacity:.75;pointer-events:none;letter-spacing:.02em}
+.status{min-height:16px;color:var(--muted);font-size:12px}
+.credit{font-size:11px;color:var(--muted);text-align:center;margin-top:-4px}
+.controls{width:min(92vw,430px);background:var(--panel);border:1px solid var(--panelLine);border-radius:16px;padding:12px 14px;display:flex;flex-direction:column;gap:10px;box-shadow:0 12px 30px var(--panelShadow)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--sub);font-size:14px}
+select{appearance:none;background:var(--inputBg);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:8px 30px 8px 10px;font:inherit;font-size:14px;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 16px) 52%,calc(100% - 11px) 52%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;max-width:60%}
+.switch{position:relative;width:48px;height:28px;flex:0 0 auto;cursor:pointer}
+.switch input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+.switch i{position:absolute;inset:0;background:var(--switchBg);border:1px solid var(--switchLine);border-radius:999px;transition:.18s;pointer-events:none}
+.switch i:after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--thumb);transition:.18s}
+.switch input:checked + i{background:var(--accentSoft);border-color:var(--accentSoft2)}
+.switch input:checked + i:after{left:23px;background:var(--accent);box-shadow:0 0 10px var(--accentGlow)}
+.switch input:disabled + i{opacity:.35}
+.mini{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:4px 8px;font:inherit;font-size:12px;cursor:pointer}
+.mini:disabled{opacity:.4}
+#intRow{display:grid;grid-template-columns:1fr;gap:2px}
+#intRow span{display:flex;justify-content:space-between}
+#intVal{color:var(--accent);font-weight:600}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:22px;background:transparent}
+input[type=range]::-webkit-slider-runnable-track{height:4px;background:var(--track);border-radius:2px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;margin-top:-7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accentGlow)}
+input[type=range]::-moz-range-track{height:4px;background:var(--track);border-radius:2px}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border:0;border-radius:50%;background:var(--accent)}
+input[type=range]:disabled{opacity:.35}
+.hint{color:var(--muted);font-size:12px;text-align:center}
+@media (max-height:760px){.brand{font-size:15px}.pad{width:min(78vw,350px)}header{margin:2px 0 8px}.controls{padding:10px 12px;gap:8px}.sub{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">다영이 또각이</div>
+  <div class="sub">너를 위한 딸깍이</div>
+</header>
+<main>
+  <div class="pad" id="pad" aria-label="다영이 또각이 키패드">
+    <button class="key" type="button" data-k="NumLock" aria-label="NumLock" style="grid-area:nl"><span class="lbl">너</span><span class="num">NUM</span></button>
+    <button class="key" type="button" data-k="NumpadDivide" aria-label="나누기" style="grid-area:div"><span class="lbl">를</span><span class="num">/</span></button>
+    <button class="key" type="button" data-k="NumpadMultiply" aria-label="곱하기" style="grid-area:mul"><span class="lbl">위</span><span class="num">*</span></button>
+    <button class="key" type="button" data-k="NumpadSubtract" aria-label="빼기" style="grid-area:sub"><span class="lbl">해</span><span class="num">−</span></button>
+    <button class="key" type="button" data-k="Numpad7" aria-label="7" style="grid-area:n7"><span class="lbl">준</span><span class="num">7</span></button>
+    <button class="key" type="button" data-k="Numpad8" aria-label="8" style="grid-area:n8"><span class="lbl">비</span><span class="num">8</span></button>
+    <button class="key" type="button" data-k="Numpad9" aria-label="9" style="grid-area:n9"><span class="lbl">한</span><span class="num">9</span></button>
+    <button class="key tall" type="button" data-k="NumpadAdd" aria-label="더하기" style="grid-area:add"><span class="lbl">다영아</span><span class="num">+</span></button>
+    <button class="key" type="button" data-k="Numpad4" aria-label="4" style="grid-area:n4"><span class="lbl">너</span><span class="num">4</span></button>
+    <button class="key" type="button" data-k="Numpad5" aria-label="5" style="grid-area:n5"><span class="lbl">만</span><span class="num">5</span></button>
+    <button class="key" type="button" data-k="Numpad6" aria-label="6" style="grid-area:n6"><span class="lbl">의</span><span class="num">6</span></button>
+    <button class="key" type="button" data-k="Numpad1" aria-label="1" style="grid-area:n1"><span class="lbl">딸</span><span class="num">1</span></button>
+    <button class="key" type="button" data-k="Numpad2" aria-label="2" style="grid-area:n2"><span class="lbl">깍</span><span class="num">2</span></button>
+    <button class="key" type="button" data-k="Numpad3" aria-label="3" style="grid-area:n3"><span class="lbl">이</span><span class="num">3</span></button>
+    <button class="key tall" type="button" data-k="NumpadEnter" aria-label="엔터" style="grid-area:ent"><span class="lbl">사랑해</span><span class="num">↵</span></button>
+    <button class="key wide" type="button" data-k="Numpad0" aria-label="0" style="grid-area:n0"><span class="lbl">입니다</span><span class="num">0</span></button>
+    <button class="key" type="button" data-k="NumpadDecimal" aria-label="점" style="grid-area:dot"><span class="lbl">.</span></button>
+  </div>
+  <div class="status" id="status">사운드 불러오는 중…</div>
+  <section class="controls">
+    <label class="row"><span>사운드</span>
+      <select id="pack">
+        <option value="brown">체리 MX 브라운</option>
+        <option value="blue">체리 MX 블루</option>
+        <option value="black">체리 MX 블랙</option>
+        <option value="red">체리 MX 레드</option>
+        <option value="topre">Topre 도각</option>
+        <option value="oreo">오레오 축</option>
+        <option value="crystal">크리스탈 축</option>
+        <option value="brown-pbt">브라운 PBT</option>
+        <option value="blue-pbt">블루 PBT</option>
+        <option value="black-pbt">블랙 PBT</option>
+        <option value="neko">고양이 야옹</option>
+        <option value="wan">강아지 멍멍</option>
+      </select>
+    </label>
+    <label class="row"><span>스킨</span>
+      <select id="skin">
+        <option value="lavender">라벤더</option>
+        <option value="melody">마이멜로디</option>
+        <option value="pochacco">포챠코</option>
+        <option value="kitty">헬로키티</option>
+        <option value="mint">민트</option>
+        <option value="sakura">사쿠라</option>
+        <option value="retro">레트로</option>
+      </select>
+    </label>
+    <label class="row"><span>질감</span>
+      <select id="tex">
+        <option value="none">기본</option>
+        <option value="bubble">거품</option>
+        <option value="jelly">말랑</option>
+        <option value="goo">쫀득</option>
+      </select>
+    </label>
+    <div class="row"><span>진동</span>
+      <span style="display:flex;gap:8px;align-items:center">
+        <button class="mini" id="vibTest" type="button">테스트</button>
+        <label class="switch"><input id="haptic" type="checkbox" checked><i></i></label>
+      </span>
+    </div>
+    <label class="row" id="intRow"><span>강도 <b id="intVal">45</b></span>
+      <input id="intensity" type="range" min="1" max="100" value="45">
+    </label>
+    <div class="hint" id="hint">숫자패드로도 칠 수 있어요</div>
+    <div class="credit" id="credit" hidden></div>
+  </section>
+</main>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const packSel=$('#pack'),skinSel=$('#skin'),texSel=$('#tex'),hapticEl=$('#haptic'),intEl=$('#intensity'),intVal=$('#intVal'),statusEl=$('#status'),hintEl=$('#hint'),creditEl=$('#credit'),vibTest=$('#vibTest'),themeMeta=$('#themeColor');
+const canVibrate='vibrate' in navigator;
+const THEME={lavender:'#0d0e15',melody:'#fff6f9',pochacco:'#f2faff',kitty:'#fff7f7',mint:'#0c1512',sakura:'#fff9fb',retro:'#16130f'};
+let ctx,buf,def,loadSeq=0,fileList=null,fileMap=null,fileDir='';
+
+function save(){try{localStorage.setItem('tenkey',JSON.stringify({pack:packSel.value,skin:skinSel.value,tex:texSel.value,haptic:hapticEl.checked,intensity:+intEl.value}))}catch(e){}}
+function ensureCtx(){if(!ctx){const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;ctx=new AC()}if(ctx.state==='suspended')ctx.resume()}
+function applySkin(id){document.body.dataset.skin=id;themeMeta.setAttribute('content',THEME[id]||'#0d0e15')}
+function applyTex(id){document.body.dataset.tex=id}
+function burst(el){const ring=document.createElement('span');ring.className='ring';el.appendChild(ring);for(let i=0;i<5;i++){const sp=document.createElement('span');sp.className='spark';const a=Math.PI*2*i/5+Math.random()*.5,d=20+Math.random()*22;sp.style.setProperty('--dx',(Math.cos(a)*d).toFixed(1)+'px');sp.style.setProperty('--dy',(Math.sin(a)*d).toFixed(1)+'px');el.appendChild(sp)}setTimeout(()=>el.querySelectorAll('.ring,.spark').forEach(n=>n.remove()),650)}
+function playFile(){
+  if(!ctx||!fileList||!fileMap||!fileList.length)return;
+  const b=fileMap.get(fileList[Math.floor(Math.random()*fileList.length)]);
+  if(!b)return;
+  const t=ctx.currentTime,dur=Math.min(b.duration,1.45);
+  const src=ctx.createBufferSource();src.buffer=b;src.playbackRate.value=1+Math.random()*.06;
+  const g=ctx.createGain();
+  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.9,t+.015);
+  g.gain.setValueAtTime(.9,t+Math.max(.06,dur-.16));g.gain.linearRampToValueAtTime(0,t+dur);
+  src.connect(g).connect(ctx.destination);src.start(t,0,dur);
+}
+function play(k,up){
+  if(!ctx)return;
+  if(fileList){if(!up)playFile();return}
+  if(!buf||!def)return;
+  const seg=(def[k]||{}).timing&&(def[k].timing[up?1:0]);if(!seg)return;
+  const src=ctx.createBufferSource();src.buffer=buf;
+  src.playbackRate.value=0.985+Math.random()*0.03;
+  const g=ctx.createGain();g.gain.value=0.9;
+  src.connect(g).connect(ctx.destination);
+  src.start(0,seg[0]/1000,Math.max(.015,(seg[1]-seg[0])/1000));
+}
+function buzz(force){
+  if(!canVibrate)return;
+  if(!force&&!hapticEl.checked)return;
+  const ms=Math.max(20,Math.round(18+(+intEl.value/100)*72));
+  try{navigator.vibrate(ms)}catch(e){}
+}
+async function loadPack(id){
+  const seq=++loadSeq;statusEl.textContent='사운드 불러오는 중…';creditEl.hidden=true;fileList=null;fileMap=null;def=null;buf=null;
+  try{
+    ensureCtx();
+    const cfg=await fetch('packs/'+id+'/config.json').then(r=>r.json());
+    if(seq!==loadSeq)return;
+    if(Array.isArray(cfg.files)){
+      const pairs=await Promise.all(cfg.files.map(async f=>{
+        const ab=await fetch('packs/'+id+'/'+f).then(r=>r.arrayBuffer());
+        return [f,await ctx.decodeAudioData(ab)];
+      }));
+      if(seq!==loadSeq)return;
+      fileMap=new Map(pairs);fileList=cfg.files;fileDir='packs/'+id+'/';statusEl.textContent='';
+      if(cfg.credit){creditEl.textContent=cfg.credit;creditEl.hidden=false}
+      return;
+    }
+    const ab=await fetch('packs/'+id+'/sound.ogg').then(r=>r.arrayBuffer());
+    const b=await ctx.decodeAudioData(ab);
+    if(seq!==loadSeq)return;
+    def=cfg.definitions;buf=b;statusEl.textContent='';
+  }catch(e){if(seq===loadSeq)statusEl.textContent='사운드를 불러오지 못했어요'}
+}
+function press(el){ensureCtx();el.classList.add('down');play(el.dataset.k,false);buzz();if(document.body.dataset.tex==='bubble')burst(el)}
+function release(el){el.classList.remove('down');play(el.dataset.k,true);if(document.body.dataset.tex==='jelly'){el.classList.remove('jiggle');void el.offsetWidth;el.classList.add('jiggle');setTimeout(()=>el.classList.remove('jiggle'),520)}}
+$$('.key').forEach(el=>{
+  el.addEventListener('pointerdown',e=>{e.preventDefault();try{el.setPointerCapture(e.pointerId)}catch(_){}press(el)});
+  el.addEventListener('pointerup',()=>release(el));
+  el.addEventListener('pointercancel',()=>release(el));
+});
+$('#pad').addEventListener('contextmenu',e=>e.preventDefault());
+const PHYS={NumLock:'NumLock',NumpadDivide:'NumpadDivide',NumpadMultiply:'NumpadMultiply',NumpadSubtract:'NumpadSubtract',NumpadAdd:'NumpadAdd',NumpadEnter:'NumpadEnter',Enter:'NumpadEnter',NumpadDecimal:'NumpadDecimal'};
+for(let i=0;i<10;i++)PHYS['Numpad'+i]='Numpad'+i;
+const keyEl=k=>document.querySelector('[data-k="'+k+'"]');
+addEventListener('keydown',e=>{const k=PHYS[e.code];if(!k)return;e.preventDefault();if(e.repeat)return;const el=keyEl(k);if(el)press(el)});
+addEventListener('keyup',e=>{const k=PHYS[e.code];if(!k)return;const el=keyEl(k);if(el)release(el)});
+hapticEl.addEventListener('change',()=>{intEl.disabled=!hapticEl.checked;save();if(hapticEl.checked)buzz()});
+intEl.addEventListener('input',()=>{intVal.textContent=intEl.value});
+intEl.addEventListener('change',save);
+packSel.addEventListener('change',()=>{save();loadPack(packSel.value)});
+skinSel.addEventListener('change',()=>{applySkin(skinSel.value);save()});
+texSel.addEventListener('change',()=>{applyTex(texSel.value);save()});
+vibTest.addEventListener('click',()=>{
+  if(!canVibrate){hintEl.textContent='이 브라우저는 진동을 지원하지 않아요';return}
+  let ok=false;try{ok=navigator.vibrate(200)}catch(e){}
+  hintEl.textContent=ok?'진동 신호를 보냈어요 (안 느껴지면 기기 진동 설정 확인)':'진동이 차단됐어요 (브라우저/기기 설정)';
+});
+try{const s=JSON.parse(localStorage.getItem('tenkey')||'{}');
+  if([...packSel.options].some(o=>o.value===s.pack))packSel.value=s.pack;
+  if([...skinSel.options].some(o=>o.value===s.skin))skinSel.value=s.skin;
+  if([...texSel.options].some(o=>o.value===s.tex))texSel.value=s.tex;
+  if(s.haptic===false)hapticEl.checked=false;
+  if(+s.intensity)intEl.value=s.intensity;
+}catch(e){}
+applySkin(skinSel.value);
+applyTex(texSel.value);
+intVal.textContent=intEl.value;
+if(!canVibrate){hapticEl.checked=false;hapticEl.disabled=true;intEl.disabled=true;vibTest.disabled=true;hintEl.textContent='이 브라우저는 진동을 지원하지 않아요 (iOS 미지원)'}
+else intEl.disabled=!hapticEl.checked;
+loadPack(packSel.value);
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body>
+</html>
